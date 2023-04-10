@@ -12,8 +12,8 @@ main(){
         printf("Escriba el piso en el que se encuentra \n");
         scanf("%d", actual);
         while(pisos>actual){
-            printf("Ascensor en el piso %d \n", piso);
-            piso++;
+            printf("Ascensor en el piso %d \n", pisos);
+            pisos++;
 
         }
         if(pisos==actual){
@@ -21,7 +21,14 @@ main(){
         }
         break;
     case 2:
-    
+        printf("seleccione el piso al que desea ir:\n");
+        scanf("%d", &actual);
+        if(actual>pisos){
+            for(pisos; pisos<actual; pisos++){
+                printf("Ascensor en el piso %d \n", pisos);
+                
+            }
+        }
     default:
         break;
     }

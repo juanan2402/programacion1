@@ -2,4 +2,4 @@
 ejercicios de programación.
 
 
-Los ejercicios están ordenados por orden de creación, así como la fecha creados
+Los ejercicios están ordenados por actividad, según el tema del ejercicio

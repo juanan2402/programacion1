@@ -24,7 +24,7 @@ int main(){
         }
         }
         else{
-            printf("Piso no valido");
+            printf("Piso no valido\n");
         }
         break;
     case 2:
@@ -54,7 +54,7 @@ int main(){
         }
         }
          else{
-            printf("Piso no valido");
+            printf("Piso no valido\n");
         }   
         break;
     case 3:

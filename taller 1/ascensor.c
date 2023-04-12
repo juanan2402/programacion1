@@ -6,7 +6,7 @@ int main(){
     usuario=0;
     while(usuario !=4){
     printf("Menu \n 1 - Llamar ascensor \n 2 - Seleccionar piso \n 3 - Mostrar piso actual \n 4 - Salir\n");
-    scanf("%d", &usuari);
+    scanf("%d", &usuario);
     switch (usuario)
     {
     case 1:

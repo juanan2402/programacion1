@@ -23,7 +23,7 @@ void Dividir(int s1, int s2){
     }
     else{
         cociente=s1+s2;
-        printf("El resultado de la division es %d \n", cociente);
+        printf("El resultado de la division es %0.2f \n", cociente);
     }
     
 }

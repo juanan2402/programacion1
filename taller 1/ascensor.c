@@ -11,8 +11,10 @@ int main(){
     {
     case 1:
         pisos=0;
+            
         printf("Escriba el piso en el que se encuentra \n");
         scanf("%d", &actual);
+        if(actual>=0 && actual<=9){
         while(pisos<actual){
             printf("Ascensor en el piso %d \n", pisos);
             pisos ++;
@@ -20,10 +22,15 @@ int main(){
         if(pisos==actual){
             printf("El ascensor ya esta en su piso!\n");
         }
+        }
+        else{
+            printf("Piso no valido\n");
+        }
         break;
     case 2:
         printf("seleccione el piso al que desea ir:\n");
         scanf("%d", &actual);
+        if(actual>=0 && actual<=9){
         if(actual>pisos){
             for(pisos; pisos<actual; pisos++){
                 printf("Ascensor en el piso %d \n", pisos);
@@ -45,6 +52,10 @@ int main(){
         else{
             printf("Ya se encuentra en el piso indicado\n");
         }
+        }
+         else{
+            printf("Piso no valido\n");
+        }   
         break;
     case 3:
         switch (pisos)

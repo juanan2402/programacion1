@@ -12,7 +12,7 @@ float AreaCirculo(){
             printf("Radio no valido\n");
         }
     }
-    area=pow(radio, 2)*M_PI();
+    area=pow(radio, 2)*pi;
 
 }
 float PerCirculo(){

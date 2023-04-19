@@ -4,7 +4,7 @@ const int pi=3.141592;
 
 float AreaCirculo(){
     int radio, area;
-    
+    radio=0;
     while(radio<=0){
         printf("Ingrese el radio del circulo\n");
         scanf("%f", radio);
@@ -30,6 +30,6 @@ float PerCirculo(){
 
 }
 int main(){
-    AreaCirculo();
+    int g = AreaCirculo();
     return 0;
 }

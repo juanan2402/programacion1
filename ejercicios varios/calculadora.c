@@ -14,7 +14,7 @@ int Restar(int s1, int s2){
 }
 int Multiplicar(int s1, int s2){
     int producto;
-    producto=s1+s2;
+    producto=s1*s2;
     return producto;
 }
 float Dividir(int s1, int s2){
@@ -23,7 +23,7 @@ float Dividir(int s1, int s2){
         printf("Datos no validos, no se puede dividir para cero\n");
     }
     else{
-        cociente=s1+s2;
+        cociente=s1/s2;
         return cociente;
     }
     
@@ -32,38 +32,42 @@ void Imprimir(float dato){
     printf("El resultado de la operacion es: %0.2f \n", dato);
 
 }
-int main(){
-
-    int operacion, d1, d2;
-    float resultado;
-    
-    while(operacion !=5){
-        printf("Escoga una operacion:\n 1- Suma \n 2- Resta\n 3- Multiplicacion \n 4- Division \n 5- Salir \n");
+int Menu(){
+    int operacion, d1, d2, resultado;
+    printf("Escoga una operacion:\n 1- Suma \n 2- Resta\n 3- Multiplicacion \n 4- Division \n 5- Salir \n");
         scanf("%d",&operacion);
-        if(operacion==5){
-            break;
-        }
+        if(operacion!=5){
         printf("Ingresar los datos: \n ");
         scanf("%d %d", &d1, &d2);
         switch (operacion)
         {
         case 1:
             resultado = Sumar(d1, d2);
-            Imprimir(resultado);
+            
             break;
         case 2:
             resultado = Restar(d1, d2);
-            Imprimir(resultado);
+            
             break;
         case 3:
             resultado = Multiplicar(d1, d2);
-            Imprimir(resultado);
+            
             break;
         case 4:
             resultado = Dividir(d1, d2);
-            Imprimir(resultado);
+            
             break;
         }
+        Imprimir(resultado);
+        }
+        return operacion;
+}
+int main(){
+
+    int input;
+    
+    while(input!=5){
+        input=Menu();
     } 
     return 0;
 }

@@ -69,7 +69,7 @@ float PerTrapecio(float B, float b, float l1, float l2 ){
     return perimetro;
 }
 void Circulo(){
-    int radio, area, perimetro;
+    float radio, area, perimetro;
 while(radio<=0){
         printf("Ingrese el radio del circulo\n");
         scanf("%f", &radio);
@@ -82,7 +82,7 @@ while(radio<=0){
     printf("El area de la figura dada es: %0.2f u^2 y su perimetro es de %0.2f u\n",area, perimetro );
 }
 void Rectangulo(){
-    int base, altura, area, perimetro;
+    float base, altura, area, perimetro;
 while(base<=0 && altura<=0){
         printf("Ingrese la base y la altura del circulo\n");
         scanf("%f %f", &base, &altura);
@@ -95,52 +95,55 @@ while(base<=0 && altura<=0){
     printf("El area de la figura dada es: %0.2f u^2 y su perimetro es de %0.2f u\n",area, perimetro );
 }
 void Cuadrado(){
-    int lado, area, perimetro;
-while(lado<=0){
+    float lado, area, perimetro;
+    printf("Ingrese el lado del cuadrado\n");
+    scanf("%f", &lado);
+    while(lado<=0){
+        printf("datos no validos\n");
         printf("Ingrese el lado del cuadrado\n");
         scanf("%f", &lado);
-        if(lado<=0){
-            printf("datos no validos\n");
-        }
     }
     area=AreaCuadrado(lado);
     perimetro=PerCuadrado(lado);
     printf("El area de la figura dada es: %0.2f u^2 y su perimetro es de %0.2f u\n",area, perimetro );
 }
 void Triangulo(){
-    int l1, l2, l3, altura, area, perimetro;
-while(l1<=0 && l2<=0 && l3<=0 && altura<=0){
+    float l1, l2, l3, altura, area, perimetro;
+    printf("Ingrese la base y la altura del triangulo\n");
+    scanf("%f %f", &l1, &altura);
+    printf("Ingrese los otros 2 lados del triangulo: \n");
+    scanf("%f %f", &l2, &l3);
+    while(l1<=0 && l2<=0 && l3<=0 && altura<=0 && (l1+l2)<=l3 && (l3+l2)<=l1 && (l1+l3)<=l2 && altura>=l1){
+        printf("datos no validos\n");
         printf("Ingrese la base y la altura del triangulo\n");
         scanf("%f %f", &l1, &altura);
         printf("Ingrese los otros 2 lados del triangulo: \n");
         scanf("%f %f", &l2, &l3);
-        if(l1<=0 && l2<=0 && l3<=0 && altura<=0){
-            printf("datos no validos\n");
-        }
     }
     area=AreaTri(l1, altura);
     perimetro=PerTri(l1, l2, l3);
     printf("El area de la figura dada es: %0.2f u^2 y su perimetro es de %0.2f u\n",area, perimetro );
 }
 void Trapecio(){
-    int l1, l2, B, b, altura, area, perimetro;
-while(l1<=0 && l2<=0 && b<=0 && B<=0){
+    float l1, l2, B, b, altura, area, perimetro;
+    printf("Ingrese la base mayor, la base menor y la altura del trapecio\n");
+    scanf("%f %f %f", &B, &b, &altura);
+    printf("Ingrese los otros 2 lados del trapecio: \n");
+    scanf("%f %f", &l1, &l2);
+    while(l1<=0 && l2<=0 && b<=0 && B<=0){
+        printf("Datos no validos \n");
         printf("Ingrese la base mayor, la base menor y la altura del trapecio\n");
         scanf("%f %f %f", &B, &b, &altura);
         printf("Ingrese los otros 2 lados del trapecio: \n");
         scanf("%f %f", &l1, &l2);
-        if(l1<=0 && l2<=0 && b<=0 && B<=0){
-            printf("datos no validos\n");
-        }
     }
     area=AreaTrapecio(B, b, altura);
     perimetro=PerTrapecio(B, b, l1, l2 );
     printf("El area de la figura dada es: %0.2f u^2 y su perimetro es de %0.2f u\n",area, perimetro );
 }
 void Menu(){
-    int opcion, radio, base, altura, lado, l1, l2, l;
-    int b, B, perimetro, area;
-    printf("Ingresa la figura que se desea: \n 1-Circulo \2 2-Cuadrado \n 3-Rectangulo \n 4-Triangulo \n 5-Trapecio \n 6-Salir");
+    int opcion;
+    printf("Ingresa la figura que se desea: \n 1-Circulo \n 2-Cuadrado \n 3-Rectangulo \n 4-Triangulo \n 5-Trapecio \n 6-Salir \n");
     scanf("%d", &opcion);
     switch(opcion){
         case 1:
@@ -170,7 +173,7 @@ void Menu(){
     
 }
 int main(){
-    while(salida==1){
+    while(salida!=1){
     Menu();
     }
     return 0;

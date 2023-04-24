@@ -1,16 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-int main(){
-    int pisos, usuario, actual;
-    usuario=0;
-    while(usuario !=4){
-    printf("Menu \n 1 - Llamar ascensor \n 2 - Seleccionar piso \n 3 - Mostrar piso actual \n 4 - Salir\n");
-    scanf("%d", &usuario);
-    switch (usuario)
-    {
-    case 1:
-        pisos=0;
+int actual, pisos;
+void Llamar(){
+    pisos=0;
             
         printf("Escriba el piso en el que se encuentra \n");
         scanf("%d", &actual);
@@ -26,9 +18,9 @@ int main(){
         else{
             printf("Piso no valido\n");
         }
-        break;
-    case 2:
-        printf("seleccione el piso al que desea ir:\n");
+        }
+void Seleccionar(){
+    printf("seleccione el piso al que desea ir:\n");
         scanf("%d", &actual);
         if(actual>=0 && actual<=9){
         if(actual>pisos){
@@ -53,9 +45,23 @@ int main(){
             printf("Ya se encuentra en el piso indicado\n");
         }
         }
-         else{
+        else{
             printf("Piso no valido\n");
         }   
+}        
+int main(){
+    int usuario;
+    usuario=0;
+    while(usuario !=4){
+    printf("Menu \n 1 - Llamar ascensor \n 2 - Seleccionar piso \n 3 - Mostrar piso actual \n 4 - Salir\n");
+    scanf("%d", &usuario);
+    switch (usuario)
+    {
+    case 1:
+        Llamar();
+        break;
+    case 2:
+        Seleccionar();
         break;
     case 3:
         switch (pisos)

@@ -6,7 +6,8 @@ void Imprimir(float dato){
 
 }
 int Menu(){
-    int operacion, d1, d2, resultado;
+    int operacion, d1, d2;
+    float resultado;
     printf("Escoga una operacion:\n 1- Suma \n 2- Resta\n 3- Multiplicacion \n 4- Division \n 5- Salir \n");
         scanf("%d",&operacion);
         if(operacion!=5){

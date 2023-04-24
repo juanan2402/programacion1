@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include "Operaciones.h"
 
 
 int Sumar(int s1, int s2){

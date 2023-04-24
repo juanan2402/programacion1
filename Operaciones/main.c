@@ -1,5 +1,10 @@
 #include<stdio.h>
 #include "Operaciones.h"
+
+void Imprimir(float dato){
+    printf("El resultado de la operacion es: %0.2f \n", dato);
+
+}
 int Menu(){
     int operacion, d1, d2, resultado;
     printf("Escoga una operacion:\n 1- Suma \n 2- Resta\n 3- Multiplicacion \n 4- Division \n 5- Salir \n");
@@ -30,10 +35,7 @@ int Menu(){
         }
         return operacion;
 }
-void Imprimir(float dato){
-    printf("El resultado de la operacion es: %0.2f \n", dato);
 
-}
 int main(){
     int input;
     

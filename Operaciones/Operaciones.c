@@ -17,7 +17,7 @@ int Multiplicar(int s1, int s2){
     producto=s1*s2;
     return producto;
 }
-float Dividir(int s1, int s2){
+float Dividir(float s1, float s2){
     float cociente;
     if(s2==0){
         printf("Datos no validos, no se puede dividir para cero\n");

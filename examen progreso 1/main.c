@@ -117,10 +117,11 @@ void OperacionTransporte(){
                 printf("kilometraje o tipo de ruta no validos\n");
             }
         }while(km<=0 || (tipo<=0 || tipo>4) );
-
+//Segun cada dato, se genera el precio, el descuento, y el precio final
         precio= CalcularPrecioRuta(tipo, km);
 
         printf("Precio Base: $ %0.2f \n", precio);
+        //se sobreescribe con el precio final
         precio=CalcularDescuento(precio, km);
         printf("Descuento: $ %0.2f \n", descuento);
         printf("Precio Base: $ %0.2f \n", precio);
@@ -131,7 +132,7 @@ void OperacionTransporte(){
 }
 void RedSocial(){
     int categoria;
-    int noticias=0, eventos=0, preguntas=0;
+    int noticias=0, eventos=0, preguntas=0;//variables de tipo
     char mensaje[200];
     for(int i =0; i<5;i++){
         printf("Escribir su mensaje: \n");
@@ -170,6 +171,7 @@ void Menu(){
         switch (opciones)
         {
         case 1:
+        //Se usa la funcion del transporte
             OperacionTransporte();
             break;
         case 2:
@@ -184,13 +186,13 @@ void Menu(){
             break;
         }
 
-    }while(opciones!=3);
+    }while(opciones!=3);//Bucle infinito 
     
 
 }
 int main(){
     int ingreso;
-    
+    //ingreso analiza el valor de login para ver si se empieza el programa
     
     ingreso= Login();
     if(ingreso==1){

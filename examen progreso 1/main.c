@@ -1,60 +1,197 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <string.h>
+//Se utiliza una variable global para poder hacer la impresón del descuento despues
+int descuento;
 
 int Login(){
-    char usuario[100], clave[100];
+    
+    char usuario[100];
+    int clave;
     int intentos = 0;
+
     //Usuarios predeterminados
-    char u1[100]= "Winston";
-    char u2[100]= "Emily";
-    char u3[100]= "Carlos";
-    char c1[100]= "Church17";
-    char c2[100]= "R0dr1";
-    char c3[100]= "Timon1";
+    char u1[]="Winston";
+    char u2[]="Emily";
+    char u3[]="Carlos";
+    int c1=1875;
+    int c2=1978;
+    int c3=873624;
+    
+
+    
+
 
     
     do{
+        //ingreso de datos
         printf("ingresar su nombre de usuario: \n");
         scanf("%s",usuario);
         printf("ingresar su contraseña \n");
-        scanf("%s",clave);
-        if(strcmp(usuario, u1)==0 &&(usuario, c1)==0){
-            printf("Ingreso correcto");
+        scanf("%d",&clave);
+//Se utiliza strcmp para cada uno de los casos, si uno se cumple, se procede al menu
+        if(clave==c1 && strcmp(u1, usuario)==0){
+            printf("Ingreso correcto\n");
+            return 1;
+            break;
          }
-        else if(strcmp(usuario, u2)==0 &&(usuario, c2)==0){
-            printf("Ingreso correcto");
+        else if(strcmp(usuario, u2)==0 && clave==c2){
+            printf("Ingreso correcto\n");
+            return 1;
+            break;
         }
-        else if(strcmp(usuario, u3)==0 &&(usuario, c3)==0){
-            printf("Ingreso correcto");
+        else if(strcmp(usuario, u3)==0 && clave==c3){
+            printf("Ingreso correcto\n");
+            return 1;
+            break;
         }
         else{
             intentos++;
             printf("usuario o contraseña fallidos intento #%d \n", intentos);
+            
         }
 
-    }while(intentos<=3);
+    }while(intentos<3);//permite solo 3 intentos para ingresar el usuario
+
+    if(intentos==3){
+        //regresa 0 una vez utilizados todos los intentos
+        return 0;
+    }
   
 
 
 
 
 }
-float CalcularPrecioRuta(){
+float CalcularPrecioRuta(int tipo, int km){
+    float precio;
+    //se aplica el precio por kilometro segùn cada tipo de viaje
+    switch (tipo)
+    {
+    case 1:
+        precio=km*0.1;
+        break;
+    case 2:
+        precio=km*0.15;
+        break;
+    case 3:
+        precio=km*0.20;
+    break;
+    default:
+        break;
+    }
+
 
 } 
-float CalcularDescuento(){
+float CalcularDescuento(float precio, int km){
+    //Se establecen los rangos para aplicar el descuento
+    if(km>=50 && km<100){
+        descuento=precio*0.05;
+    }
+    else if(km>=100 && km<500){
+        descuento=precio*0.10;
+
+    }
+    else{
+        descuento=precio*0.20;
+
+    }
+    //se resta el valor del decuento para retornar el precio
+    precio-=descuento;
+    return precio;
 
 }
-int OperacionTransporte(){
+void OperacionTransporte(){
+    int tipo, km, precio;
+    for(int i =0; i<5;i++){
+        printf("Usuario %d \n", i+1);
+        printf("\n");
+        printf("Ingresar el numero según el tipo de ruta \n 1- Urbana \n 2-Interurbana \n 3- Internacional\n");
+        scanf("%d", &tipo);
+        do{
+        printf("Ingresar el kilometraje \n");
+        scanf("%d", &km);
+        if(km<=0){
+            printf("kilometraje no valido\n");
+        }
+        }while(km<=0);
+        precio= CalcularPrecioRuta(tipo, km);
+
+        printf("Precio Base: $ %d \n", precio);
+        precio=CalcularDescuento(precio, km);
+        printf("Descuento: $ %d \n", descuento);
+        printf("Precio Base: $ %d \n", precio);
+
+
+    }
 
 }
-int RedSocial(){
+void RedSocial(){
+    int categoria;
+    int noticias=0, eventos=0, preguntas=0;
+    char mensaje[200];
+    for(int i =0; i<5;i++){
+        printf("Escribir su mensaje: \n");
+        scanf("%s", mensaje);
+        printf("Seleccionar la categoria: \n 1-Noticias:Mensajes relacionados con anuncios de la empresa de transporte o cambios en las rutas.  \n 2-Eventos:Mensajes relacionados con eventos de la comunidad, como ferias, conciertos o actividades recreativas. \n 3-Preguntas: Mensajes en los que los usuarios hacen preguntas sobre tarifas, horarios o servicios de transporte. \n");
+        scanf("%d", categoria);
+        switch (categoria)
+        {
+        case 1:
+            noticias++;
+            break;
+        case 2:
+            eventos++;
+            break;
+        case 3:
+            preguntas++;
+            break;
+        
+        }
+
+
+
+    }
+    printf("Noticias: %d \n Eventos: %d\n Preguntas: %d\n", noticias, eventos, preguntas);
 
 }
+
+
+
 void Menu(){
+    int opciones;
+    do{
+        printf("1-Operación de transporte \n 2-Interactuar en la red social \n 3-salir\n");
+        scanf("%d", &opciones);
+        switch (opciones)
+        {
+        case 1:
+            OperacionTransporte();
+            break;
+        case 2:
+            RedSocial();
+            break;
+        case 3:
+            printf("Saliendo...\n");
+            break;
+        
+        default:
+            printf("Opcion no valida\n");
+            break;
+        }
+
+    }while(opciones!=3);
+    
 
 }
 int main(){
-    int x;
-    x= Login();
+    int ingreso;
+    
+    
+    ingreso= Login();
+    if(ingreso==1){
+        Menu();
+    }
+    
+   Menu();
+    return 0;
 }

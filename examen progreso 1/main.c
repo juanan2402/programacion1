@@ -1,3 +1,6 @@
+//Juan Andrés Serrano
+//Programación 1
+//Examen progreso 1
 #include <stdio.h>
 #include <string.h>
 //Se utiliza una variable global para poder hacer la impresón del descuento despues

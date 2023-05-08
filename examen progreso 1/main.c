@@ -12,11 +12,12 @@ int Login(){
     char c2[100]= "R0dr1";
     char c3[100]= "Timon1";
 
-    printf("ingresar su nombre de usuario: \n");
-    scanf("%s",usuario);
-    printf("ingresar su contraseña \n");
-    scanf("%s",clave);
+    
     do{
+        printf("ingresar su nombre de usuario: \n");
+        scanf("%s",usuario);
+        printf("ingresar su contraseña \n");
+        scanf("%s",clave);
         if(strcmp(usuario, u1)==0 &&(usuario, c1)==0){
             printf("Ingreso correcto");
          }

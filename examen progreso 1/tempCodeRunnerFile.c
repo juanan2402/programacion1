@@ -1,1 +1,2 @@
-Church17
+
+        precio= CalcularPrecioRuta(tipo, km);

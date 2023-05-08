@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 //Se utiliza una variable global para poder hacer la impresón del descuento despues
-int descuento;
+float descuento;
 
 int Login(){
     
@@ -76,9 +76,8 @@ float CalcularPrecioRuta(int tipo, int km){
     case 3:
         precio=km*0.20;
     break;
-    default:
-        break;
     }
+    return precio;
 
 
 } 
@@ -91,7 +90,7 @@ float CalcularDescuento(float precio, int km){
         descuento=precio*0.10;
 
     }
-    else{
+    else if(km>=500){
         descuento=precio*0.20;
 
     }
@@ -101,25 +100,30 @@ float CalcularDescuento(float precio, int km){
 
 }
 void OperacionTransporte(){
-    int tipo, km, precio;
+    int tipo, km;
+    float precio;
+    //inicio del bucle para los usuarios
     for(int i =0; i<5;i++){
         printf("Usuario %d \n", i+1);
         printf("\n");
-        printf("Ingresar el numero según el tipo de ruta \n 1- Urbana \n 2-Interurbana \n 3- Internacional\n");
-        scanf("%d", &tipo);
+        
+        //Comprobación de que el kilometraje y el tipo sea valido
         do{
-        printf("Ingresar el kilometraje \n");
-        scanf("%d", &km);
-        if(km<=0){
-            printf("kilometraje no valido\n");
-        }
-        }while(km<=0);
+            printf("Ingresar el numero según el tipo de ruta \n 1- Urbana \n 2-Interurbana \n 3- Internacional\n");
+            scanf("%d", &tipo);
+            printf("Ingresar el kilometraje \n");
+            scanf("%d", &km);
+            if(km<=0 || (tipo<=0 || tipo>4)){
+                printf("kilometraje o tipo de ruta no validos\n");
+            }
+        }while(km<=0 || (tipo<=0 || tipo>4) );
+
         precio= CalcularPrecioRuta(tipo, km);
 
-        printf("Precio Base: $ %d \n", precio);
+        printf("Precio Base: $ %0.2f \n", precio);
         precio=CalcularDescuento(precio, km);
-        printf("Descuento: $ %d \n", descuento);
-        printf("Precio Base: $ %d \n", precio);
+        printf("Descuento: $ %0.2f \n", descuento);
+        printf("Precio Base: $ %0.2f \n", precio);
 
 
     }
@@ -132,8 +136,9 @@ void RedSocial(){
     for(int i =0; i<5;i++){
         printf("Escribir su mensaje: \n");
         scanf("%s", mensaje);
-        printf("Seleccionar la categoria: \n 1-Noticias:Mensajes relacionados con anuncios de la empresa de transporte o cambios en las rutas.  \n 2-Eventos:Mensajes relacionados con eventos de la comunidad, como ferias, conciertos o actividades recreativas. \n 3-Preguntas: Mensajes en los que los usuarios hacen preguntas sobre tarifas, horarios o servicios de transporte. \n");
-        scanf("%d", categoria);
+        printf("Seleccionar la categoria: \n" );
+        printf("1-Noticias:Mensajes relacionados con anuncios de la empresa de transporte o cambios en las rutas.  \n 2-Eventos:Mensajes relacionados con eventos de la comunidad, como ferias, conciertos o actividades recreativas. \n 3-Preguntas: Mensajes en los que los usuarios hacen preguntas sobre tarifas, horarios o servicios de transporte. \n");
+        scanf("%d", &categoria);
         switch (categoria)
         {
         case 1:
@@ -192,6 +197,6 @@ int main(){
         Menu();
     }
     
-   Menu();
+   
     return 0;
 }

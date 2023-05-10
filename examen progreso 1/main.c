@@ -6,6 +6,29 @@
 //Se utiliza una variable global para poder hacer la impresón del descuento despues
 float descuento;
 
+//Prototipos funciones
+int Login();
+float CalcularPrecioRuta(int tipo, int km);
+float CalcularDescuento(float precio, int km);
+void OperacionTransporte();
+void RedSocial();
+void Menu();
+
+//funcion principal
+int main(){
+    int ingreso;
+    //ingreso analiza el valor de login para ver si se empieza el programa
+    
+    ingreso= Login();
+    if(ingreso==1){
+        Menu();
+    }
+    
+   
+    return 0;
+}
+
+//declaración de funciones
 int Login(){
     
     char usuario[100];
@@ -20,13 +43,9 @@ int Login(){
     int c2=1978;
     int c3=873624;
     
-
-    
-
-
-    
     do{
         //ingreso de datos
+        fflush(stdin);
         printf("ingresar su nombre de usuario: \n");
         scanf("%s",usuario);
         printf("ingresar su contraseña \n");
@@ -192,16 +211,4 @@ void Menu(){
     }while(opciones!=3);//Bucle infinito 
     
 
-}
-int main(){
-    int ingreso;
-    //ingreso analiza el valor de login para ver si se empieza el programa
-    
-    ingreso= Login();
-    if(ingreso==1){
-        Menu();
-    }
-    
-   
-    return 0;
 }

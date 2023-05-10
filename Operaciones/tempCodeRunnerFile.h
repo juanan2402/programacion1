@@ -1,1 +1,0 @@
-float s1, float s2

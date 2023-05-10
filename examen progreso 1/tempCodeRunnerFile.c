@@ -1,2 +1,0 @@
-
-        precio= CalcularPrecioRuta(tipo, km);

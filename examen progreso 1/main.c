@@ -1,6 +1,9 @@
 //Juan Andrés Serrano
+//Alexander Sanchez
+//Nicolas Cajas
+
 //Programación 1
-//Examen progreso 1
+//taller 1
 #include <stdio.h>
 #include <string.h>
 #include "Operaciones.h"

@@ -37,6 +37,34 @@ void Transpuesta(int fil, int col, int matriz[fil][col], int matrizT[fil][col]){
     }
 
 }
+void MultiMat(int filA, int colA, int filB, int colB, int matrizA[filA][colA], int matrizB[filB][colB], int matrizP[filA][colB]){
+    if(colA==filB){
+        if(filA<colB)
+        for(int i=0; i<filA; i++){
+            for(int j=0; j<colB; j++){
+                for(int k=0; k<filB; k++){
+                    for(int l=0; l<colA; l++){
+                        matrizP[i][j]+=matrizA[i][j]*matrizB[j][i];
+                    }
+                }
+         }
+    }
+
+    }
+    else{
+        printf("Matrices no aptas para multiplicar\n");
+    }
+    
+
+}
+void MultiEsc(int fil, int col, int matriz[fil][col], int matrizP[fil][col], int escalar){
+    for(int i=0; i<fil; i++){
+        for(int j=0; j<col; j++){
+            matrizP[j][i]=matriz[i][j]*escalar;
+        }
+    }
+
+}
 
 int main(){
     

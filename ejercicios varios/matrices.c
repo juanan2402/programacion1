@@ -29,6 +29,14 @@ void SumaMatriz(int fil, int col, int matrizA[fil][col], int matrizB[fil][col], 
     }
 
 }
+void Transpuesta(int fil, int col, int matriz[fil][col], int matrizT[fil][col]){
+    for(int i=0; i<fil; i++){
+        for(int j=0; j<col; j++){
+            matrizT[j][i]=matriz[i][j];
+        }
+    }
+
+}
 
 int main(){
     
@@ -37,12 +45,22 @@ int main(){
     int matB[10][10];
 
     int matC[10][10];
+
+    int matT[10][10];
+
     printf("Matriz A\n");
     LeerMatriz(n, n, matA);
+    /*
     printf("Matriz B\n");
     LeerMatriz(n,n,matB);
     SumaMatriz(n,n,matA,matB,matC);
-    ImprimirMatriz(n,n,matC);
+    */
+    Transpuesta(n, n, matA, matT);
+    ImprimirMatriz(n,n,matA);
+    printf("\n");
+    printf("Matriz Transpuesta\n");
+
+    ImprimirMatriz(n,n,matT);
 
     
     

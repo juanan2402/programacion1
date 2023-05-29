@@ -61,8 +61,7 @@ int main(){
     printf("Matriz Transpuesta\n");
 
     ImprimirMatriz(n,n,matT);
-
-    
+return 0;
     
 
 }

@@ -1,16 +1,19 @@
 #include<stdio.h>
 #include "operaciones.h"
+#include "pstrings.h"
 
 
 int main(void){
     float a, b, c;
-    int n;
+    int n,stringc;
     float arreglo[100];
     float arreglo2[100];
     float escalar;
     float* p1;
     float* p2;
     float* r;
+    char pal1[100], pal2 [100];
+    
 
     p1=&a;
     r=&c;
@@ -68,6 +71,13 @@ int main(void){
     for(int i=0; i<n; i++){
         printf("%f\n", arreglo2[i]);
     }
+
+//Comparacion strings
+    printf("ingresar una palabra\n");
+    scanf("%c", pal1);
+    printf("ingresar otra palabra\n");
+    scanf("%c", pal2);
+    stringc=comparacion(pal1, pal2, );
 
     return 0;
 

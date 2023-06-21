@@ -59,10 +59,11 @@ int main(void){
 
 
     SumaArregloEscalar(n, arreglo, escalar );
-
+//impresion del arreglo modificado
     for(int i=0; i<n; i++){
         printf("%f\n", arreglo[i]);
     }
+//utilizando el mismo tamaño se suman 2 valores del vector y se almacenan en la casilla siguiente
     printf("--------- Serie-----\n");
     printf("Ingresar un primer valor:\n");
     scanf("%f", &arreglo2[0]);

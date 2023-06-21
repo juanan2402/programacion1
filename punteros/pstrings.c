@@ -7,10 +7,8 @@ int comparacion(char* pal1, char* pal2){
     }
     pal1++;
     pal2++;
-    else{
       if(*pal1=='\0' && *pal2 == '\0'){
         return 1; 
       }
-    }
   }
 }

@@ -12,7 +12,7 @@ int main(void){
     float* p1;
     float* p2;
     float* r;
-    char pal1[100], pal2 [100];
+    char pal1[100], pal2[100];
     
 
     p1=&a;
@@ -74,10 +74,10 @@ int main(void){
 
 //Comparacion strings
     printf("ingresar una palabra\n");
-    scanf("%c", pal1);
+    scanf("%s", pal1);
     printf("ingresar otra palabra\n");
-    scanf("%c", pal2);
-    stringc=comparacion(pal1, pal2, );
+    scanf("%s", pal2);
+    stringc=comparacion(pal1, pal2 );
     if(stringc){
         printf("son iguales la palabras\n");
     }

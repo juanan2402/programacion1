@@ -78,6 +78,12 @@ int main(void){
     printf("ingresar otra palabra\n");
     scanf("%c", pal2);
     stringc=comparacion(pal1, pal2, );
+    if(stringc){
+        printf("son iguales la palabras\n");
+    }
+    else{
+        printf("Son diferentes las palabras\n");
+    }
 
     return 0;
 
